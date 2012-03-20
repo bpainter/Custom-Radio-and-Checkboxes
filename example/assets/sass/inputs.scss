@@ -1,0 +1,135 @@
+@import "compass";
+
+/* -----------------------------------------------------------
+variables and setup
+------------------------------------------------------------ */
+$sub-baseline:      5px;
+$baseline:          $sub-baseline * 3; // 15px
+$field-height:      $sub-baseline * 5; // 25px
+$input-size:        $sub-baseline * 3; // 20px
+
+// Enables SVG support in IE9
+$experimental-support-for-svg: true;
+
+// Rounded corner, gradient and box shadow support in IE7-8
+$experimental-support-for-pie: false;
+
+body{
+    color: #333;
+    font: 12px Helvetica;
+    padding: 0 10%;
+}
+
+/* -----------------------------------------------------------
+basic styles
+------------------------------------------------------------ */
+label {
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    height: $field-height;
+    line-height: $field-height;
+}
+.fields {
+    margin-bottom: $sub-baseline * 2;
+}
+.field {
+    margin-right: $sub-baseline * 2;
+    position: relative;
+}
+.radio, .checkbox {
+    label {
+        font-weight: normal;
+    }
+    input {
+        margin-right: $sub-baseline;
+    }
+}
+
+/* -----------------------------------------------------------
+layout
+------------------------------------------------------------ */
+.horizontal{
+    label:first-child {
+        float: left;
+        margin-right: $sub-baseline * 4;
+        text-align: right;
+        width: 150px;
+    }
+    .field {
+        display: inline-block;
+        margin-bottom: $sub-baseline * 2;
+    }
+}
+
+/* -----------------------------------------------------------
+custom input theme
+------------------------------------------------------------ */
+.custom-input {
+    label {
+        margin-left: -21px;
+        padding-left: 21px;
+        position: relative;
+        &:before {
+            @include background(linear-gradient(#efefef, #d9d9db));
+            background-color: #efefef;
+            border: 1px solid #cdc7c7;
+            content: "";
+            display: block;
+            margin-top: -10px;
+            position: absolute;
+                top: 50%;
+                left: 0;
+            height: $input-size;
+            width: $input-size;
+            z-index: 5;
+        }
+        &:after {
+            color: #048ec7;
+            content: "";
+            display: none;
+            margin-top: -6px;
+            position: absolute;
+                top: 50%;
+                left: 4px;
+            height: $input-size - 6;
+            width: $input-size - 6;
+            z-index: 10;
+        }
+        &.hover:before, &.focus:before {
+            @include box-shadow(#00b4ff 0 0 5px);
+        }
+        &.checked:after {
+            display: block;
+        }
+    }
+    &.radio {
+        label {
+            &:before {
+                @include border-radius($input-size);
+            }
+            &:after {
+                @include background(linear-gradient(#00b4ff, #048ec7));
+                background-color: #00b4ff;
+                @include border-radius($input-size);
+            }
+        }
+    }
+    &.checkbox {
+        label {
+            &:before {
+                @include border-radius($sub-baseline);
+            }
+            &:after {
+                content: "\2713";
+                left: 4px;
+                margin-top: -13px;
+            }
+        }
+    }
+    input{
+        position: relative;
+            top: 1px;
+            left: 2px;
+    }
+}

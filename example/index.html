@@ -1,0 +1,66 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>Custom, Accessible Radio and Checkbox Inputs</title>
+
+  <link rel="stylesheet" href="assets/css/inputs.css">
+  <script src="assets/js/libs/modernizr.2.5.3.min.custom.js"></script>
+</head>
+<body>
+  <h1>Custom, Accessible Inputs</h1>
+  <form action="#" method="post" accept-charset="utf-8" class="vertical">
+    <div class="fields">
+      <label for="radio-cake">Favorite Dessert</label>
+
+      <div class="field radio">
+        <input type="radio" name="radios" id="radio-cake" value="cake" />
+        <label for="radio-cake">Cake</label>
+      </div>
+
+      <div class="field radio">
+        <input type="radio" name="radios" id="radio-cupcakes" value="cupcakes" />
+        <label for="radio-cupcakes">Cupcakes</label>
+      </div>
+
+      <div class="field radio">
+        <input type="radio"name="radios" id="radio-pie" value="pie" />
+        <label for="radio-pie">Pie</label>
+      </div>
+
+      <div class="field radio">
+        <input type="radio" name="radios" id="radio-cookies" value="cookies" />
+        <label for="radio-cookies">Cookies</label>
+      </div>
+    </div>
+
+    <div class="fields">
+      <label for="checkbox-yes">Accessible</label>
+
+      <div class="field checkbox">
+        <input type="checkbox" name="checkboxes" id="checkbox-yes" value="yes" />
+        <label for="checkbox-yes">Yes</label>
+      </div>
+
+      <div class="field checkbox">
+        <input type="checkbox" name="checkboxes" id="checkbox-no" value="no" />
+        <label for="checkbox-no">No</label>
+      </div>
+    </div>
+  </form>
+
+
+  <script src="assets/js/libs/jquery-1.7.1.min.js"></script>
+  <script src="../jquery.custom-inputs.js"></script>
+  <script>
+    (function ($) {
+      $('form').find('input[type="radio"], input[type="checkbox"]').customInput();
+    })(jQuery);
+  </script>
+</body>
+</html>
