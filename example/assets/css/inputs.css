@@ -153,6 +153,7 @@ custom input theme
 }
 /* line 130, ../sass/inputs.scss */
 .custom-input input {
+  outline: none;
   position: relative;
   top: 1px;
   left: 2px;
